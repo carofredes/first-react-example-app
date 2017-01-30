@@ -2,6 +2,10 @@ module.exports = {
   entry: {
     app: './app',
   },
+  devServer: {
+    inline:true,
+    port: 8008
+  },
   output: {
     path: __dirname,
     filename: '[name].js',
@@ -10,23 +14,16 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
-      },
-      {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
           presets: ['es2015', 'stage-0', 'react'],
-          plugins: ['transform-runtime', 'transform-decorators-legacy'],
+          plugins: ['transform-runtime'],
         },
       },
     ],
   },
   plugins: [
-    new ExtractTextPlugin('[name].css', {
-      allChunks: true,
-    }),
   ],
 };

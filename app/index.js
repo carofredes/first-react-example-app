@@ -1,8 +1,6 @@
-import 'purecss/build/pure-css';
-
 import React from "react";
 import { render } from "react-dom";
 
-import { Layout } from './components';
+import App from './components/app';
 
-render(<Layout />, document.getElementById('app'))
+render(<App />, document.getElementById('app'));
